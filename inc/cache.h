@@ -34,6 +34,7 @@
 #include "champsim_constants.h"
 #include "channel.h"
 #include "module_impl.h"
+#include "ooo_cpu.h"
 #include "operable.h"
 #include <type_traits>
 
@@ -155,6 +156,8 @@ class CACHE : public champsim::operable
   std::deque<tag_lookup_type> translation_stash{};
 
 public:
+  O3_CPU* p_cpu = nullptr;  // A pointer to the CPU that owns this cache
+
   std::vector<channel_type*> upper_levels;
   channel_type* lower_level;
   channel_type* lower_translate;

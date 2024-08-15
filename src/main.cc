@@ -38,6 +38,7 @@ std::vector<phase_stats> main(environment& env, std::vector<phase_info>& phases,
 int main(int argc, char** argv)
 {
   champsim::configured::generated_environment gen_environment{};
+  gen_environment.cpu0_L2C.p_cpu = &gen_environment.cpu0; // Bind the LLC to the CPU
 
   CLI::App app{"A microarchitecture simulator for research and education"};
 
